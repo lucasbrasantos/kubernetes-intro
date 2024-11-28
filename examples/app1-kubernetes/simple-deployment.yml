@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+
+kind: Deployment
+metadata:
+  name: app-html-deployment
+  labels: # used to identify the deployment pods in the cluster
+    app: app-html
+
+spec:
+    replicas: 5 # number of pods to create
+    selector: # used to identify the pods to be managed by the deployment
+      matchLabels:
+        app: app-html
+
+    template: # template for the pods
+      metadata:
+        labels:
+          app: app-html
+      spec:
+        containers:
+        - name: app-html
+          image: httpd:latest
+          ports:
+          - containerPort: 80 

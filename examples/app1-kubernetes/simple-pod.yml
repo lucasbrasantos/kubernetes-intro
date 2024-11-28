@@ -1,0 +1,14 @@
+apiVersion: v1
+
+kind: Pod
+metadata:
+  name: app-html
+  labels:
+    app: app-html
+
+spec: # specification of the container
+  containers:
+  - name: app-html # name of the container
+    image: httpd:latest # image to use
+    ports:
+    - containerPort: 80
