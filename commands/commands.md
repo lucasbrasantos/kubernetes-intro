@@ -183,3 +183,18 @@
   ```
   - Continuously updates the list of pods in real-time.
 
+- **Delete All Resources:**
+  ```bash
+  kubectl delete all --all
+  ```
+  - Deletes all resources (deployments, pods, services, etc.) in the current namespace.
+
+
+## **Docker Commands**
+- **Build a Docker Image:**
+
+To build a Docker image from a Dockerfile in the current directory, use the following command:
+
+```bash
+docker build -t <image_name>:<tag> .
+```
