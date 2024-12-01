@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: mysql:5.7
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: mydb
+        ports:
+        - containerPort: 3306
+          name: mysql-port
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql # This path refers to the directory inside the container where MySQL will store its data.
+
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
+
+      volumes:
+      - name: mysql-storage
+        hostPath:
+          path: /mydb/ # This path refers to a directory on the host node where the data will be stored.
+          # This is not a good practice because it can overload the host making everything slow and affect other applications.      
