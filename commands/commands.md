@@ -126,6 +126,21 @@
     minikube service --url app-html
     ```
 
+- **Forward a Local Port to a Service Port:**
+  ```bash
+  kubectl port-forward service/<service-name> <local-port>:<service-port>
+  ```
+  - Forwards traffic from a local port to a Kubernetes service.
+  - Example:
+    ```bash
+    kubectl port-forward service/nginx-loadbalancer-service 8080:80
+    ```
+  - **Usage:** Access the service locally using `http://localhost:8080`.
+
+---
+
+Let me know if you'd like any further modifications!
+
 ---
 
 ## **Node Management**
