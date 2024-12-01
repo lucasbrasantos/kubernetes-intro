@@ -1,4 +1,4 @@
-### Organized `commands.md` for Kubernetes with Minikube
+### Updated `commands.md` for Kubernetes with MySQL Commands Inside a Pod
 
 # **Essential Kubernetes Commands**
 
@@ -84,6 +84,17 @@
     kubectl exec -it mysql-pod -- /bin/bash
     ```
 
+- **Connect to MySQL Inside the Pod:**
+  ```bash
+  mysql -u root -h localhost -p
+  ```
+  - Connects to the MySQL database inside the pod using the root user.
+  - After running this command, it will prompt you for the root password.
+  - Example:
+    ```bash
+    mysql -u root -h localhost -p
+    ```
+    - **Note:** Use the same credentials as specified in the `MYSQL_ROOT_PASSWORD` environment variable in the deployment YAML file.
 
 ---
 
@@ -189,12 +200,11 @@
   ```
   - Deletes all resources (deployments, pods, services, etc.) in the current namespace.
 
+---
 
 ## **Docker Commands**
-- **Build a Docker Image:**
-
-To build a Docker image from a Dockerfile in the current directory, use the following command:
-
-```bash
-docker build -t <image_name>:<tag> .
-```
+- **Build a Docker Image:**  
+  ```bash
+  docker build -t <image_name>:<tag> .
+  ```
+  - Builds a Docker image from the current directory's `Dockerfile`.
